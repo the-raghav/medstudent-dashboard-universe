@@ -18,11 +18,11 @@ const Index = () => {
 
   // Default props for components
   const progressData = {
-    progressItems: [
-      { id: '1', subject: 'Anatomy', completed: 85, total: 100 },
-      { id: '2', subject: 'Physiology', completed: 70, total: 100 },
-      { id: '3', subject: 'Biochemistry', completed: 60, total: 100 },
-      { id: '4', subject: 'Pathology', completed: 45, total: 100 },
+    progress: [
+      { subject: 'Anatomy', completedTopics: 85, totalTopics: 100 },
+      { subject: 'Physiology', completedTopics: 70, totalTopics: 100 },
+      { subject: 'Biochemistry', completedTopics: 60, totalTopics: 100 },
+      { subject: 'Pathology', completedTopics: 45, totalTopics: 100 },
     ],
     totalCompleted: 13,
     totalRequired: 20,
@@ -36,7 +36,7 @@ const Index = () => {
       date: '2024-03-15T10:00:00',
       time: '10:00 AM',
       location: 'Virtual Room A',
-      type: 'Study Group',
+      type: 'webinar' as 'webinar' | 'workshop' | 'lecture' | 'exam',
     },
     {
       id: '2',
@@ -45,7 +45,7 @@ const Index = () => {
       date: '2024-03-16T15:30:00',
       time: '3:30 PM',
       location: 'Virtual Room B',
-      type: 'Webinar',
+      type: 'lecture' as 'webinar' | 'workshop' | 'lecture' | 'exam',
     },
   ];
 
@@ -76,7 +76,7 @@ const Index = () => {
               {/* Right sidebar - 1/3 width on large screens */}
               <div className="lg:col-span-1 space-y-6">
                 <ProgressTracker 
-                  progressItems={progressData.progressItems}
+                  progress={progressData.progress}
                   totalCompleted={progressData.totalCompleted}
                   totalRequired={progressData.totalRequired}
                 />

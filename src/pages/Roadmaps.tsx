@@ -10,30 +10,28 @@ const defaultRoadmapItems = [
     id: '1',
     title: 'Anatomy Fundamentals',
     description: 'Master the basics of human anatomy',
-    duration: '4 weeks',
-    difficulty: 'Beginner',
-    completed: true,
-    milestones: [
-      { id: 'm1', title: 'Skeletal System', completed: true },
-      { id: 'm2', title: 'Muscular System', completed: true },
-      { id: 'm3', title: 'Nervous System', completed: true },
-      { id: 'm4', title: 'Cardiovascular System', completed: true },
-    ]
+    status: 'completed' as 'completed' | 'in-progress' | 'locked',
+    completionPercentage: 100,
   },
   {
     id: '2',
     title: 'Physiology Deep Dive',
     description: 'Understand how the human body functions',
-    duration: '6 weeks',
-    difficulty: 'Intermediate',
-    completed: false,
-    milestones: [
-      { id: 'm1', title: 'Cell Physiology', completed: true },
-      { id: 'm2', title: 'Neurophysiology', completed: true },
-      { id: 'm3', title: 'Cardiovascular Physiology', completed: false },
-      { id: 'm4', title: 'Respiratory Physiology', completed: false },
-      { id: 'm5', title: 'Renal Physiology', completed: false },
-    ]
+    status: 'in-progress' as 'completed' | 'in-progress' | 'locked',
+    completionPercentage: 60,
+  },
+  {
+    id: '3',
+    title: 'Biochemistry & Molecular Biology',
+    description: 'Learn the chemical foundations of biological systems',
+    status: 'in-progress' as 'completed' | 'in-progress' | 'locked',
+    completionPercentage: 30,
+  },
+  {
+    id: '4',
+    title: 'Pathology & Disease Mechanisms',
+    description: 'Study the mechanisms of disease development',
+    status: 'locked' as 'completed' | 'in-progress' | 'locked',
   },
 ];
 

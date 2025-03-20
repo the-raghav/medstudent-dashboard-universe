@@ -121,14 +121,15 @@ const DoctorDirectory = () => {
   };
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(e.target.value);
-    if (e.target.value === '') {
+    const value = e.target.value;
+    setSearchTerm(value);
+    if (value === '') {
       setDoctors(filterDoctors(activeTab));
     } else {
       const filtered = doctors.filter(
-        d => d.name.toLowerCase().includes(e.target.value.toLowerCase()) || 
-             d.specialty.toLowerCase().includes(e.target.value.toLowerCase()) ||
-             d.expertise.some(e => e.toLowerCase().includes(e.target.value.toLowerCase()))
+        d => d.name.toLowerCase().includes(value.toLowerCase()) || 
+             d.specialty.toLowerCase().includes(value.toLowerCase()) ||
+             d.expertise.some(exp => exp.toLowerCase().includes(value.toLowerCase()))
       );
       setDoctors(filtered);
     }
