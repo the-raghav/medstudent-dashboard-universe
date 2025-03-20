@@ -77,7 +77,7 @@ const defaultDoctors: Doctor[] = [
     name: 'Dr. Robert Martinez',
     avatar: '/placeholder.svg',
     specialty: 'Pediatrician',
-    hospital: 'Children's Medical Center',
+    hospital: "Children's Medical Center",
     experience: '10 years',
     rating: 4.9,
     reviewCount: 112,
