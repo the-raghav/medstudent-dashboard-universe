@@ -4,12 +4,9 @@ import Header from '@/components/Header';
 import Sidebar from '@/components/Sidebar';
 import Footer from '@/components/Footer';
 import WelcomeBanner from '@/components/dashboard/WelcomeBanner';
-import StudyMaterials from '@/components/dashboard/StudyMaterials';
-import DiscussionForums from '@/components/dashboard/DiscussionForums';
-import StudyRoadmap from '@/components/dashboard/StudyRoadmap';
-import MentorshipQA from '@/components/dashboard/MentorshipQA';
-import UpcomingEvents from '@/components/dashboard/UpcomingEvents';
+import FeedContainer from '@/components/dashboard/FeedContainer';
 import ProgressTracker from '@/components/dashboard/ProgressTracker';
+import UpcomingEvents from '@/components/dashboard/UpcomingEvents';
 
 const Index = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -40,24 +37,9 @@ const Index = () => {
                 {/* Welcome banner with key stats */}
                 <WelcomeBanner studentName="Sarah" />
                 
-                {/* Study materials section */}
+                {/* Feed container */}
                 <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
-                  <StudyMaterials />
-                </div>
-                
-                {/* Discussion forums section */}
-                <div className="animate-fade-in" style={{ animationDelay: '0.3s' }}>
-                  <DiscussionForums />
-                </div>
-                
-                {/* Roadmap section */}
-                <div className="animate-fade-in" style={{ animationDelay: '0.4s' }}>
-                  <StudyRoadmap />
-                </div>
-                
-                {/* Mentorship & Q&A section */}
-                <div className="animate-fade-in" style={{ animationDelay: '0.5s' }}>
-                  <MentorshipQA />
+                  <FeedContainer />
                 </div>
               </div>
               

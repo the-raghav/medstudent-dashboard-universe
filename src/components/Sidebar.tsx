@@ -1,4 +1,6 @@
+
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   LayoutDashboard, 
   BookOpen, 
@@ -29,19 +31,19 @@ interface NavItem {
 const Sidebar = ({ isOpen }: SidebarProps) => {
   // Main navigation items
   const navItems: NavItem[] = [
-    { title: 'Dashboard', icon: LayoutDashboard, href: '#', active: true },
-    { title: 'Study Materials', icon: BookOpen, href: '#', badge: 'New' },
-    { title: 'Discussion Forums', icon: MessageCircle, href: '#' },
-    { title: 'Study Roadmaps', icon: Map, href: '#' },
-    { title: 'Mentorship & Q&A', icon: Users, href: '#' },
-    { title: 'Profile & Settings', icon: User, href: '#' },
+    { title: 'Dashboard', icon: LayoutDashboard, href: '/', active: true },
+    { title: 'Study Materials', icon: BookOpen, href: '/study-materials', badge: 'New' },
+    { title: 'Discussion Forums', icon: MessageCircle, href: '/forums' },
+    { title: 'Study Roadmaps', icon: Map, href: '/roadmaps' },
+    { title: 'Mentorship & Q&A', icon: Users, href: '/mentorship' },
+    { title: 'Profile & Settings', icon: User, href: '/profile' },
   ];
 
   // Resource links
   const resourceLinks: NavItem[] = [
-    { title: 'Study Tips', icon: GraduationCap, href: '#' },
-    { title: 'Help Center', icon: HelpCircle, href: '#' },
-    { title: 'Settings', icon: Settings, href: '#' },
+    { title: 'Study Tips', icon: GraduationCap, href: '/study-tips' },
+    { title: 'Help Center', icon: HelpCircle, href: '/help' },
+    { title: 'Settings', icon: Settings, href: '/settings' },
   ];
 
   return (
@@ -55,9 +57,9 @@ const Sidebar = ({ isOpen }: SidebarProps) => {
         {/* Main navigation */}
         <nav className="space-y-1 py-4">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.title}
-              href={item.href}
+              to={item.href}
               className={cn(
                 "flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-all",
                 item.active
@@ -75,15 +77,15 @@ const Sidebar = ({ isOpen }: SidebarProps) => {
                   {item.badge}
                 </span>
               )}
-            </a>
+            </Link>
           ))}
         </nav>
 
         <div className="mt-auto space-y-1 py-4 border-t border-slate-100">
           {resourceLinks.map((item) => (
-            <a
+            <Link
               key={item.title}
-              href={item.href}
+              to={item.href}
               className={cn(
                 "flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-all text-slate-600 hover:bg-slate-50 hover:text-bloomin-600",
                 !isOpen && "justify-center"
@@ -93,7 +95,7 @@ const Sidebar = ({ isOpen }: SidebarProps) => {
               {isOpen && (
                 <span className="transition-opacity duration-200">{item.title}</span>
               )}
-            </a>
+            </Link>
           ))}
         </div>
       </div>
