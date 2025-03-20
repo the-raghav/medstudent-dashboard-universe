@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { 
   LayoutDashboard, 
@@ -9,7 +8,7 @@ import {
   User, 
   ChevronRight,
   ChevronLeft,
-  Graduation,
+  GraduationCap,
   Settings,
   HelpCircle
 } from 'lucide-react';
@@ -40,7 +39,7 @@ const Sidebar = ({ isOpen }: SidebarProps) => {
 
   // Resource links
   const resourceLinks: NavItem[] = [
-    { title: 'Study Tips', icon: Graduation, href: '#' },
+    { title: 'Study Tips', icon: GraduationCap, href: '#' },
     { title: 'Help Center', icon: HelpCircle, href: '#' },
     { title: 'Settings', icon: Settings, href: '#' },
   ];
