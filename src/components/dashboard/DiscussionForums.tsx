@@ -1,4 +1,3 @@
-
 import { MessageCircle, Sparkles, Users } from 'lucide-react';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -23,7 +22,6 @@ interface DiscussionForumsProps {
   topics: ForumTopic[];
 }
 
-// Default topics if none provided
 const defaultTopics: ForumTopic[] = [
   {
     id: '1',
@@ -49,20 +47,6 @@ const defaultTopics: ForumTopic[] = [
     participants: [
       { name: 'Taylor', avatar: '/placeholder.svg' },
       { name: 'Jordan', avatar: '/placeholder.svg' },
-    ],
-  },
-  {
-    id: '3',
-    title: 'Resources for clinical rotation preparation',
-    replies: 31,
-    views: 210,
-    lastActivity: '1 day ago',
-    category: 'Clinical Skills',
-    isTrending: true,
-    participants: [
-      { name: 'Casey', avatar: '/placeholder.svg' },
-      { name: 'Riley', avatar: '/placeholder.svg' },
-      { name: 'Drew', avatar: '/placeholder.svg' },
     ],
   },
 ];

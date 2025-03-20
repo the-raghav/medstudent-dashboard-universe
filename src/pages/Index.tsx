@@ -1,12 +1,13 @@
 
 import { useState } from 'react';
 import Header from '@/components/Header';
-import Sidebar from '@/components/Sidebar';
 import Footer from '@/components/Footer';
+import Sidebar from '@/components/Sidebar';
 import WelcomeBanner from '@/components/dashboard/WelcomeBanner';
 import FeedContainer from '@/components/dashboard/FeedContainer';
 import ProgressTracker from '@/components/dashboard/ProgressTracker';
 import UpcomingEvents from '@/components/dashboard/UpcomingEvents';
+import AIAssistant from '@/components/dashboard/AIAssistant';
 
 const Index = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -14,6 +15,28 @@ const Index = () => {
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
+
+  // Default props for components
+  const progressData = {
+    progress: 65,
+    totalCompleted: 13,
+    totalRequired: 20,
+  };
+
+  const defaultEvents = [
+    {
+      id: '1',
+      title: 'USMLE Step 1 Study Group',
+      date: '2024-03-15T10:00:00',
+      type: 'Study Group',
+    },
+    {
+      id: '2',
+      title: 'Cardiology Case Discussion',
+      date: '2024-03-16T15:30:00',
+      type: 'Webinar',
+    },
+  ];
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -33,27 +56,16 @@ const Index = () => {
           <div className="container px-4 py-8 max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               {/* Main content - 2/3 width on large screens */}
-              <div className="lg:col-span-2 space-y-8 animate-fade-in" style={{ animationDelay: '0.1s' }}>
-                {/* Welcome banner with key stats */}
+              <div className="lg:col-span-2 space-y-8">
                 <WelcomeBanner studentName="Sarah" />
-                
-                {/* Feed container */}
-                <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
-                  <FeedContainer />
-                </div>
+                <FeedContainer />
+                <AIAssistant />
               </div>
               
               {/* Right sidebar - 1/3 width on large screens */}
               <div className="lg:col-span-1 space-y-6">
-                {/* Progress tracker */}
-                <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
-                  <ProgressTracker />
-                </div>
-                
-                {/* Upcoming events */}
-                <div className="animate-fade-in" style={{ animationDelay: '0.3s' }}>
-                  <UpcomingEvents />
-                </div>
+                <ProgressTracker {...progressData} />
+                <UpcomingEvents events={defaultEvents} />
               </div>
             </div>
           </div>
