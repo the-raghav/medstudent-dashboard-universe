@@ -3,9 +3,36 @@ import { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Sidebar from '@/components/Sidebar';
-import StudyMaterialsComponent from '@/components/dashboard/StudyMaterials';
+import StudyMaterials from '@/components/dashboard/StudyMaterials';
 
-const StudyMaterials = () => {
+const defaultMaterials = [
+  {
+    id: '1',
+    title: 'Complete Anatomy Guide',
+    type: 'PDF',
+    category: 'Anatomy',
+    author: 'Dr. James Wilson',
+    dateAdded: '2023-05-10',
+    rating: 4.8,
+    size: '15MB',
+    downloads: 1243,
+    thumbnail: '/placeholder.svg',
+  },
+  {
+    id: '2',
+    title: 'Pharmacology Flashcards',
+    type: 'Flashcards',
+    category: 'Pharmacology',
+    author: 'Dr. Emily Chen',
+    dateAdded: '2023-06-02',
+    rating: 4.9,
+    size: '8MB',
+    downloads: 982,
+    thumbnail: '/placeholder.svg',
+  },
+];
+
+const StudyMaterialsPage = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   const toggleSidebar = () => {
@@ -29,7 +56,7 @@ const StudyMaterials = () => {
         }`}>
           <div className="container px-4 py-8 max-w-7xl mx-auto">
             <h1 className="text-3xl font-bold text-slate-800 mb-6">Study Materials</h1>
-            <StudyMaterialsComponent />
+            <StudyMaterials materials={defaultMaterials} />
           </div>
           
           <Footer className="mt-8" />
@@ -39,4 +66,4 @@ const StudyMaterials = () => {
   );
 };
 
-export default StudyMaterials;
+export default StudyMaterialsPage;

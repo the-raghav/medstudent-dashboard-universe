@@ -18,7 +18,12 @@ const Index = () => {
 
   // Default props for components
   const progressData = {
-    progress: 65,
+    progressItems: [
+      { id: '1', subject: 'Anatomy', completed: 85, total: 100 },
+      { id: '2', subject: 'Physiology', completed: 70, total: 100 },
+      { id: '3', subject: 'Biochemistry', completed: 60, total: 100 },
+      { id: '4', subject: 'Pathology', completed: 45, total: 100 },
+    ],
     totalCompleted: 13,
     totalRequired: 20,
   };
@@ -27,13 +32,19 @@ const Index = () => {
     {
       id: '1',
       title: 'USMLE Step 1 Study Group',
+      description: 'Join fellow students preparing for the USMLE exam',
       date: '2024-03-15T10:00:00',
+      time: '10:00 AM',
+      location: 'Virtual Room A',
       type: 'Study Group',
     },
     {
       id: '2',
       title: 'Cardiology Case Discussion',
+      description: 'Analysis of interesting cardiac cases with Dr. Wilson',
       date: '2024-03-16T15:30:00',
+      time: '3:30 PM',
+      location: 'Virtual Room B',
       type: 'Webinar',
     },
   ];
@@ -64,7 +75,11 @@ const Index = () => {
               
               {/* Right sidebar - 1/3 width on large screens */}
               <div className="lg:col-span-1 space-y-6">
-                <ProgressTracker {...progressData} />
+                <ProgressTracker 
+                  progressItems={progressData.progressItems}
+                  totalCompleted={progressData.totalCompleted}
+                  totalRequired={progressData.totalRequired}
+                />
                 <UpcomingEvents events={defaultEvents} />
               </div>
             </div>

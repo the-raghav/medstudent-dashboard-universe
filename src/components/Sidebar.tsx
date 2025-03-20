@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { 
   LayoutDashboard, 
   BookOpen, 
@@ -12,7 +12,9 @@ import {
   ChevronLeft,
   GraduationCap,
   Settings,
-  HelpCircle
+  HelpCircle,
+  UserPlus,
+  Stethoscope
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -29,21 +31,25 @@ interface NavItem {
 }
 
 const Sidebar = ({ isOpen }: SidebarProps) => {
+  const location = useLocation();
+  
   // Main navigation items
   const navItems: NavItem[] = [
-    { title: 'Dashboard', icon: LayoutDashboard, href: '/', active: true },
-    { title: 'Study Materials', icon: BookOpen, href: '/study-materials', badge: 'New' },
-    { title: 'Discussion Forums', icon: MessageCircle, href: '/forums' },
-    { title: 'Study Roadmaps', icon: Map, href: '/roadmaps' },
-    { title: 'Mentorship & Q&A', icon: Users, href: '/mentorship' },
-    { title: 'Profile & Settings', icon: User, href: '/profile' },
+    { title: 'Dashboard', icon: LayoutDashboard, href: '/', active: location.pathname === '/' },
+    { title: 'Study Materials', icon: BookOpen, href: '/study-materials', active: location.pathname === '/study-materials', badge: 'New' },
+    { title: 'Discussion Forums', icon: MessageCircle, href: '/forums', active: location.pathname === '/forums' },
+    { title: 'Study Roadmaps', icon: Map, href: '/roadmaps', active: location.pathname === '/roadmaps' },
+    { title: 'Find Study Partner', icon: UserPlus, href: '/study-partner', active: location.pathname === '/study-partner', badge: 'New' },
+    { title: 'Connect with Doctors', icon: Stethoscope, href: '/connect-doctors', active: location.pathname === '/connect-doctors', badge: 'New' },
+    { title: 'Mentorship & Q&A', icon: Users, href: '/mentorship', active: location.pathname === '/mentorship' },
+    { title: 'Profile & Settings', icon: User, href: '/profile', active: location.pathname === '/profile' },
   ];
 
   // Resource links
   const resourceLinks: NavItem[] = [
-    { title: 'Study Tips', icon: GraduationCap, href: '/study-tips' },
-    { title: 'Help Center', icon: HelpCircle, href: '/help' },
-    { title: 'Settings', icon: Settings, href: '/settings' },
+    { title: 'Study Tips', icon: GraduationCap, href: '/study-tips', active: location.pathname === '/study-tips' },
+    { title: 'Help Center', icon: HelpCircle, href: '/help', active: location.pathname === '/help' },
+    { title: 'Settings', icon: Settings, href: '/settings', active: location.pathname === '/settings' },
   ];
 
   return (

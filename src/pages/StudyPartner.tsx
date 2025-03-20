@@ -3,38 +3,9 @@ import { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Sidebar from '@/components/Sidebar';
-import DiscussionForums from '@/components/dashboard/DiscussionForums';
+import StudyPartnerMatcher from '@/components/dashboard/StudyPartnerMatcher';
 
-const defaultTopics = [
-  {
-    id: '1',
-    title: 'Study strategies for USMLE Step 1',
-    replies: 24,
-    views: 152,
-    lastActivity: '2 hours ago',
-    category: 'Exam Prep',
-    isTrending: true,
-    participants: [
-      { name: 'Alex', avatar: '/placeholder.svg' },
-      { name: 'Morgan', avatar: '/placeholder.svg' },
-      { name: 'Jamie', avatar: '/placeholder.svg' },
-    ],
-  },
-  {
-    id: '2',
-    title: 'Understanding cardiac arrhythmias - help needed!',
-    replies: 15,
-    views: 89,
-    lastActivity: '5 hours ago',
-    category: 'Cardiology',
-    participants: [
-      { name: 'Taylor', avatar: '/placeholder.svg' },
-      { name: 'Jordan', avatar: '/placeholder.svg' },
-    ],
-  },
-];
-
-const Forums = () => {
+const StudyPartner = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   const toggleSidebar = () => {
@@ -57,8 +28,8 @@ const Forums = () => {
           isSidebarOpen ? 'md:ml-64' : 'md:ml-16'
         }`}>
           <div className="container px-4 py-8 max-w-7xl mx-auto">
-            <h1 className="text-3xl font-bold text-slate-800 mb-6">Discussion Forums</h1>
-            <DiscussionForums topics={defaultTopics} />
+            <h1 className="text-3xl font-bold text-slate-800 mb-6">Find Study Partners</h1>
+            <StudyPartnerMatcher />
           </div>
           
           <Footer className="mt-8" />
@@ -68,4 +39,4 @@ const Forums = () => {
   );
 };
 
-export default Forums;
+export default StudyPartner;
