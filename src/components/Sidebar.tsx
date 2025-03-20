@@ -14,7 +14,9 @@ import {
   Settings,
   HelpCircle,
   UserPlus,
-  Stethoscope
+  Stethoscope,
+  University,
+  Megaphone
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -36,12 +38,13 @@ const Sidebar = ({ isOpen }: SidebarProps) => {
   // Main navigation items
   const navItems: NavItem[] = [
     { title: 'Dashboard', icon: LayoutDashboard, href: '/', active: location.pathname === '/' },
-    { title: 'Study Materials', icon: BookOpen, href: '/study-materials', active: location.pathname === '/study-materials', badge: 'New' },
+    { title: 'Study Materials', icon: BookOpen, href: '/study-materials', active: location.pathname === '/study-materials' },
     { title: 'Discussion Forums', icon: MessageCircle, href: '/forums', active: location.pathname === '/forums' },
     { title: 'Study Roadmaps', icon: Map, href: '/roadmaps', active: location.pathname === '/roadmaps' },
-    { title: 'Find Study Partner', icon: UserPlus, href: '/study-partner', active: location.pathname === '/study-partner', badge: 'New' },
-    { title: 'Connect with Doctors', icon: Stethoscope, href: '/connect-doctors', active: location.pathname === '/connect-doctors', badge: 'New' },
+    { title: 'Find Study Partner', icon: UserPlus, href: '/study-partner', active: location.pathname === '/study-partner' },
+    { title: 'Connect with Doctors', icon: Stethoscope, href: '/connect-doctors', active: location.pathname === '/connect-doctors' },
     { title: 'Mentorship & Q&A', icon: Users, href: '/mentorship', active: location.pathname === '/mentorship' },
+    { title: 'Institution', icon: Megaphone, href: '/institution', active: location.pathname === '/institution', badge: 'New' },
     { title: 'Profile & Settings', icon: User, href: '/profile', active: location.pathname === '/profile' },
   ];
 

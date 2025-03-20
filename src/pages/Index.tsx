@@ -8,6 +8,7 @@ import FeedContainer from '@/components/dashboard/FeedContainer';
 import ProgressTracker from '@/components/dashboard/ProgressTracker';
 import UpcomingEvents from '@/components/dashboard/UpcomingEvents';
 import AIAssistant from '@/components/dashboard/AIAssistant';
+import MCQQuiz from '@/components/dashboard/MCQQuiz';
 
 const Index = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -66,21 +67,24 @@ const Index = () => {
         }`}>
           <div className="container px-4 py-8 max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              {/* Main content - 2/3 width on large screens */}
-              <div className="lg:col-span-2 space-y-8">
-                <WelcomeBanner studentName="Sarah" />
-                <FeedContainer />
-                <AIAssistant />
-              </div>
-              
-              {/* Right sidebar - 1/3 width on large screens */}
+              {/* Left sidebar - 1/3 width on large screens */}
               <div className="lg:col-span-1 space-y-6">
+                <AIAssistant />
                 <ProgressTracker 
                   progress={progressData.progress}
                   totalCompleted={progressData.totalCompleted}
                   totalRequired={progressData.totalRequired}
                 />
-                <UpcomingEvents events={defaultEvents} />
+              </div>
+              
+              {/* Main content - 2/3 width on large screens */}
+              <div className="lg:col-span-2 space-y-8">
+                <WelcomeBanner studentName="Sarah" />
+                <FeedContainer />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <UpcomingEvents events={defaultEvents} />
+                  <MCQQuiz />
+                </div>
               </div>
             </div>
           </div>
